@@ -43,8 +43,6 @@ classdef RobotControl < handle
             % Update gridmap
             pose_C = se2_oplus(pose, measurement.pose_BC);
             obj.gridmap.add_scan(pose_C, measurement.scan, measurement.max_range);
-            obj.curr_ij(1) = round(pose_C(1));
-            obj.curr_ij(2) = round(pose_C(2));
             
             % Check if we are close to goal
             if obj.planner.goal_reached(pose)
@@ -70,10 +68,10 @@ classdef RobotControl < handle
             %   REPLAN: bool, true if needs to replan
             
             % YOUR CODE STARTS HERE =======================================
-            if (round(pose(1)) == obj.curr_ij(1) && round(pose(2)) == obj.curr_ij(2))
-                replan = false;
-                return
-            end
+             if (pose(1) == obj.curr_ij(1) && pose(2) == obj.curr_ij(2))
+                 replan = false;
+                 return
+             end
             replan = true;
             % YOUR CODE ENDS HERE =========================================
         end
