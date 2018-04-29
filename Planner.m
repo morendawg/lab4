@@ -47,9 +47,7 @@ methods
             
         % Create a digraph from the adjacency matrix
         G = digraph(A); % DO NOT MODIFY
-        
-        plot(G, 'Layout', 'force', 'EdgeLabel', G.Edges.Weight);
-        
+                
         % Call matlab's `shortestpath` on G, by default this uses
         % dijkstra's algorithm, if you implement A* if you want
         
