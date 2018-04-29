@@ -59,13 +59,13 @@ methods
         waypoints = shortestpath(G,startNode,endNode);
         waypoints = cell2mat({waypoints});
         
-        w_s = zeros(2, length(waypoints));
+        w_s = zeros(2, length(waypoin);
         
         for i=1:length(waypoints)
             [I,J] = ind2sub(s,waypoints(i));
-            w_s(:,i) = [I;J];
+            waypoints(i) = [I;J];
         end
-        waypoints = w_s;
+        
         % save for visualization
         obj.path = waypoints;
     end
