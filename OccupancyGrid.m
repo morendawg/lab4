@@ -40,9 +40,11 @@ classdef OccupancyGrid < handle
             
             % YOUR CODE STARTS HERE =======================================
             pose = pose';
-            angles = scan(1,:);
-            ranges = scan(2,:);
-            insertRay(obj.grid,pose,angles,ranges,max_range);
+            ranges = scan(1,:);
+            angles = scan(2,:);
+            show(obj.grid)
+            insertRay(obj.grid,pose,ranges,angles,max_range);
+            show(obj.grid)
             % YOUR CODE ENDS HERE =========================================
         end
         

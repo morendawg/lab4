@@ -81,11 +81,14 @@ methods
         
         %need to add dummy node for the findnode method to work
         G = addnode(G,'dummy');
-        for i = 2:n-1
-            for j = 2:m-1
+        for i = 1:n
+            for j = 1:m
                 cell = map(i,j);
                 for a = -1:1
                     for b = -1:1
+                         if (i+a < 1 || j+b <1 || i+a > n || j+b > m)
+                            break;
+                         end
                          if(map(i+a,j+b)==1) 
                             neighborName = char(string(i+a) + 'c' + string(j+b));
                             myName = char(string(i) + 'c' + string(j));

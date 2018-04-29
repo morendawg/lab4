@@ -68,10 +68,10 @@ classdef RobotControl < handle
             %   REPLAN: bool, true if needs to replan
             
             % YOUR CODE STARTS HERE =======================================
-             if (pose(1) == obj.curr_ij(1) && pose(2) == obj.curr_ij(2))
-                 replan = false;
-                 return
-             end
+%              if (pose(1) == obj.curr_ij(1) && pose(2) == obj.curr_ij(2))
+%                  replan = false;
+%                  return
+%              end
             replan = true;
             % YOUR CODE ENDS HERE =========================================
         end
