@@ -48,6 +48,8 @@ methods
         % Create a digraph from the adjacency matrix
         G = digraph(A); % DO NOT MODIFY
         
+        plot(G, 'Layout', 'force', 'EdgeLabel', G.Edges.Weight);
+        
         % Call matlab's `shortestpath` on G, by default this uses
         % dijkstra's algorithm, if you implement A* if you want
         
@@ -85,14 +87,12 @@ methods
         [n,m] = size(map);
         s = size(map);
         
-        %need to add dummy node for the findnode method to work
         for i = 1:n
             for j = 1:m
                 c = sub2ind(s,i,j);
-                G = addnode(G,c);
                  for a = -1:1
                      for b = -1:1
-                         if (i+a<1||j+b<1||i+a>n||j+b>m)
+                         if (i+a<1||j+b<1||i+a>n||j+b>m||(a==0 && b==0))
                              continue;
                          end                       
                          adj = sub2ind(s,i+a,j+b);

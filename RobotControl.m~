@@ -27,7 +27,7 @@ classdef RobotControl < handle
             obj.gridmap = gridmap;
             obj.planner = planner;
             obj.tracker = tracker;
-            obj.curr_ij = [1; 1]; % subscript of the cell that the robot is currently in
+            obj.curr_ij = [0; 0]; % subscript of the cell that the robot is currently in
         end
         
         function vel_cmd = process(obj, measurement)
@@ -75,14 +75,14 @@ classdef RobotControl < handle
             obj.curr_ij(1) = round(pose(1));
             obj.curr_ij(2) = round(pose(2));
             
-            s = size(obj.gridmap.map);
+            s = size(obj.gridmap.map)
+            if(sub2in
             
-            if(sub2ind(s, obj.curr_ij(1),obj.curr_ij(2)) ~= sub2ind(s,obj.old_ij(1),obj.old_ij(2)))
-                replan = true;
-                return
+            if (round(pose(1)) == round(obj.curr_ij(1)) && round(pose(2)) == round(obj.curr_ij(2)))
+                  replan = false;
+                  return
             end
-            replan = false;
-                
+            replan = true;
             % YOUR CODE ENDS HERE =========================================
         end
     end
